@@ -3,6 +3,7 @@ class Artist {
         this.name = name;
         this.currency = currency;
         this.priceInCents = 0;
+        this.profit = 0;
         this.songsList = [];
     }
 
@@ -44,12 +45,13 @@ class Artist {
 
     playSong(songIndex) {
         this.songsList[songIndex].count++;
+        this.profit += this.priceInCents;
         return `Playing song: ${this.songsList[songIndex].title}.`;
     }
 
     fortune() {
 
-        return ``;
+        return `Total lifetime wealth of ${this.name} is ${this.currencyFormat(this.profit)} right now!`;
     }
 }
 
